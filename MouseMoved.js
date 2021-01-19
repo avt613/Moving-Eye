@@ -71,7 +71,7 @@ LeftEye = new MovingEye('SVGRoot', 'layer1', 20);
 RightEye = new MovingEye('SVGRoot1', 'layer1', 20);
 // Then set mousemoved to be called for each eye when the mouse is moved
 // the mouse coordinates are the 2 required parameters
-document.onmousemove = function(){
-    LeftEye.mousemoved(event.clientX, event.clientY);
-    RightEye.mousemoved(event.clientX, event.clientY);
+document.onmousemove = function(e){
+    LeftEye.mousemoved(e.clientX, e.clientY);
+    RightEye.mousemoved(e.clientX, e.clientY);
 }
