@@ -76,7 +76,7 @@
        r="125.57402" />
   </g>
   <g
-     inkscape:label="cornea"
+     inkscape:label="iris"
      inkscape:groupmode="layer"
      id="layer1">
     <g
@@ -100,7 +100,7 @@
 <script>
     var movement = 20;
     eye = document.getElementById('SVGRoot');
-    Cornea = eye.getElementById("layer1");
+    Iris = eye.getElementById("layer1");
     document.onmousemove = function(e){
         let midX = (eye.getBoundingClientRect().left + eye.getBoundingClientRect().right)/2;
         let midY = (eye.getBoundingClientRect().top  + eye.getBoundingClientRect().bottom)/2;
@@ -120,13 +120,13 @@
             var y = "0%"
         };
         //console.log(x, y)
-        Cornea.style.left = x;
-        Cornea.style.top = y;
-        Cornea.style.transform = "translate("+ x +","+ y +")";
+        Iris.style.left = x;
+        Iris.style.top = y;
+        Iris.style.transform = "translate("+ x +","+ y +")";
     }
 </script></div>
         <div class="col-auto">
-            <p>I have tried to make an eye which moves with the mouse using JavaScript.<br>This code uses the mouses relative location to the centre of the eye and then works how how far to move it.<br>First I made a simple eye with&nbsp;<span style="text-decoration: underline;">inkscape</span>&nbsp;containing the layer containing the cornea / pupil (which for me has an id 'layer1').<br>Then I opened the saved image with a text editor and copied it into the html where. Following the image in the code I inserted the JavaScript.<br><a class="btn btn-primary github-button" role="button" href="https://github.com/avt613/Moving-Eye/fork" data-icon="octicon-repo-forked" aria-label="Fork avt613/Moving-Eye on GitHub">Fork</a><br></p><code>var movement = 20;<br>eye = document.getElementById('SVGRoot');<br>Cornea = eye.getElementById("layer1");<br>document.onmousemove = function(e){<br>&nbsp; &nbsp; let midX = (eye.getBoundingClientRect().left + eye.getBoundingClientRect().right)/2;<br>&nbsp; &nbsp;&nbsp;let midY = (eye.getBoundingClientRect().top + eye.getBoundingClientRect().bottom)/2;<br>&nbsp; &nbsp;&nbsp;if(event.clientX &lt; midX){<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var x = movement* (event.clientX - midX) / midX + "%";<br>&nbsp; &nbsp;&nbsp;}else if (event.clientX &gt; midX){<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var x = movement* (event.clientX - midX) / (window.innerWidth - midX) + "%";<br>&nbsp; &nbsp;&nbsp;}else{<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; var x = "0%"<br>&nbsp; &nbsp;&nbsp;};<br>&nbsp; &nbsp;&nbsp;if(event.clientY &lt; midY){<br>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; var y = movement* (event.clientY - midY) / midY + "%";<br>&nbsp; &nbsp;&nbsp;}else if(event.clientY &gt; midY){<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; var y = movement* (event.clientY - midY) / (window.innerHeight - midY) + "%";<br>&nbsp; &nbsp;&nbsp;}else{<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var y = "0%"<br>&nbsp; &nbsp;&nbsp;};<br>&nbsp; &nbsp;&nbsp;Cornea.style.left = x;<br>&nbsp; &nbsp;&nbsp;Cornea.style.top = y;<br>&nbsp; &nbsp;&nbsp;Cornea.style.transform = "translate("+ x +","+ y +")";<br>}</code>
+            <p>I have tried to make an eye which moves with the mouse using JavaScript.<br>This code uses the mouses relative location to the centre of the eye and then works how how far to move it.<br>First I made a simple eye with&nbsp;<span style="text-decoration: underline;">inkscape</span>&nbsp;containing the layer containing the iris / pupil (which for me has an id 'layer1').<br>Then I opened the saved image with a text editor and copied it into the html where. Following the image in the code I inserted the JavaScript.<br><a class="btn btn-primary github-button" role="button" href="https://github.com/avt613/Moving-Eye/fork" data-icon="octicon-repo-forked" aria-label="Fork avt613/Moving-Eye on GitHub">Fork</a><br></p><code>var movement = 20;<br>eye = document.getElementById('SVGRoot');<br>Iris = eye.getElementById("layer1");<br>document.onmousemove = function(e){<br>&nbsp; &nbsp; let midX = (eye.getBoundingClientRect().left + eye.getBoundingClientRect().right)/2;<br>&nbsp; &nbsp;&nbsp;let midY = (eye.getBoundingClientRect().top + eye.getBoundingClientRect().bottom)/2;<br>&nbsp; &nbsp;&nbsp;if(event.clientX &lt; midX){<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var x = movement* (event.clientX - midX) / midX + "%";<br>&nbsp; &nbsp;&nbsp;}else if (event.clientX &gt; midX){<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var x = movement* (event.clientX - midX) / (window.innerWidth - midX) + "%";<br>&nbsp; &nbsp;&nbsp;}else{<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; var x = "0%"<br>&nbsp; &nbsp;&nbsp;};<br>&nbsp; &nbsp;&nbsp;if(event.clientY &lt; midY){<br>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; var y = movement* (event.clientY - midY) / midY + "%";<br>&nbsp; &nbsp;&nbsp;}else if(event.clientY &gt; midY){<br>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; var y = movement* (event.clientY - midY) / (window.innerHeight - midY) + "%";<br>&nbsp; &nbsp;&nbsp;}else{<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;var y = "0%"<br>&nbsp; &nbsp;&nbsp;};<br>&nbsp; &nbsp;&nbsp;Iris.style.left = x;<br>&nbsp; &nbsp;&nbsp;Iris.style.top = y;<br>&nbsp; &nbsp;&nbsp;Iris.style.transform = "translate("+ x +","+ y +")";<br>}</code>
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
