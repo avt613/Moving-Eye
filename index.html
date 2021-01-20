@@ -13,8 +13,8 @@
     <div>
         <h1 class="text-center">Moving Eyes with JavaScript</h1>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-auto"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    <div class="row justify-content-center" style="max-width: 100vw;">
+        <div class="col-auto text-nowrap"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -24,8 +24,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="255px"
-   height="255px"
+   width="50%"
    viewBox="0 0 255 255"
    version="1.1"
    id="SVGRoot"
@@ -96,7 +95,8 @@
          r="51.298828" />
     </g>
   </g>
-</svg><svg
+</svg>
+<svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -104,8 +104,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="255px"
-   height="255px"
+   width="50%"
    viewBox="0 0 255 255"
    version="1.1"
    id="SVGRoot1"
@@ -223,6 +222,11 @@
             this.iris.style.transform = "translate("+ x +","+ y +")";
         }
     }
+    function ActivateEye(eye){
+        document.addEventListener("mousemove", function(e) {
+            eye.mousemoved(e.clientX, e.clientY);
+        });
+    }
     // use the MovingEye class to create the object(s) for the eye(s)
     // There are 3 parameters:
     // 1) The ID of the svg/outer eye which contains the iris
@@ -230,15 +234,13 @@
     // 3) The maximum percentage the iris can move in the outer eye
     LeftEye = new MovingEye('SVGRoot', 'layer1', 20);
     RightEye = new MovingEye('SVGRoot1', 'layer1', 20);
-    // Then set mousemoved to be called for each eye when the mouse is moved
-    // the mouse coordinates are the 2 required parameters
-    document.onmousemove = function(e){
-        LeftEye.mousemoved(e.clientX, e.clientY);
-        RightEye.mousemoved(e.clientX, e.clientY);
-    }
+    // Activate the eyes by running the ActivateEye function passing through the eye variables set previously
+    ActivateEye(LeftEye);
+    ActivateEye(RightEye);
 </script></div>
-        <div class="col-auto" style="max-width: 800px;"><a class="btn btn-primary github-button" role="button" href="https://github.com/avt613/Moving-Eye" data-icon="octicon-star" data-size="large" aria-label="Star avt613/Moving-Eye on GitHub">Star</a><a class="btn btn-primary github-button" role="button" href="https://github.com/avt613/Moving-Eye/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork avt613/Moving-Eye on GitHub">Fork</a>
-            <p>I have tried to make an eye which moves with the mouse using JavaScript. This code uses the mouses' location relative to the centre of the eye and the edge of the page to work out how far to move the iris. <br>First I made a simple eye with&nbsp;<a href="http://www.inkscape.org/"><span style="text-decoration: underline;">inkscape</span></a>&nbsp;containing the layer containing an iris. Then I opened the saved image with a text editor and copied it into the html where. Finally I inserted the JavaScript which does the magic.<br>To make it simpler, I have used classes. To use this in your own code, first import the 'MovingEye' class by inserting&nbsp;<code>&lt;script src="https://raw.githubusercontent.com/avt613/Moving-Eye/master/MouseMoved.js"&gt;&lt;/script&gt;</code>&nbsp;in the header of the html. <br>Then initiate the eye by running&nbsp;<code>Eye = new MovingEye('eyeID', 'irisID', 20);</code>&nbsp;in the JavaScript, where 'eyeID' is the&nbsp;ID of the svg/outer eye which contains the iris, `irisID` is the&nbsp;ID of the iris which will move and the last parameter is the&nbsp;maximum percentage the iris can move in the outer eye. (I would recommend keeping that at 20.)<br>Then set the eye to move when the mouse moves by running&nbsp;<code><br>document.onmousemove = function(){<br>&nbsp; &nbsp; Eye.mousemoved(event.clientX, event.clientY);<br>}</code><br>For an example, here is the code for the two eyes on this page:<code><br>&lt;script&gt;<br>&nbsp;&nbsp;LeftEye = new MovingEye('SVGRoot', 'layer1', 20);<br>&nbsp;&nbsp;RightEye = new MovingEye('SVGRoot1', 'layer1', 20);<br>&nbsp;&nbsp;document.onmousemove = function(e){<br>&nbsp;&nbsp;&nbsp;&nbsp;LeftEye.mousemoved(e.clientX, e.clientY);<br>&nbsp;&nbsp;&nbsp;&nbsp;RightEye.mousemoved(e.clientX, e.clientY);<br>&nbsp;&nbsp;}<br>&lt;/script&gt;<br></code>To understand how this code works, please look at&nbsp;<a href="https://github.com/avt613/Moving-Eye/blob/master/MouseMoved.js">MouseMoved.js</a>.</p>
+        <div class="col-auto" style="/*max-width: 800px;*/">
+            <div class="text-center"><a class="btn btn-primary github-button" role="button" href="https://github.com/avt613/Moving-Eye" data-icon="octicon-star" data-size="large" aria-label="Star avt613/Moving-Eye on GitHub">Star</a><a class="btn btn-primary github-button" role="button" href="https://github.com/avt613/Moving-Eye/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork avt613/Moving-Eye on GitHub">Fork</a></div>
+            <p style="padding: inherit;">I have tried to make an eye which moves with the mouse using JavaScript. This code uses the mouses' location relative to the centre of the eye and the edge of the page to work out how far to move the iris. <br>First I made a simple eye with&nbsp;<a href="http://www.inkscape.org/"><span style="text-decoration: underline;">inkscape</span></a>&nbsp;containing the layer containing an iris. Then I opened the saved image with a text editor and copied it into the html where. Finally I inserted the JavaScript which does the magic.<br>To make it simpler, I have used classes. To use this in your own code, first import the 'MovingEye' class by inserting&nbsp;<code>&lt;script src="https://raw.githubusercontent.com/avt613/Moving-Eye/master/MouseMoved.js"&gt;&lt;/script&gt;</code>&nbsp;in the header of the html. <br>Then initiate the eye by running&nbsp;<code>Eye = new MovingEye('eyeID', 'irisID', 20);</code>&nbsp;in the JavaScript, where 'eyeID' is the&nbsp;ID of the svg/outer eye which contains the iris, `irisID` is the&nbsp;ID of the iris which will move and the last parameter is the&nbsp;maximum percentage the iris can move in the outer eye. (I would recommend keeping that at 20.)<br>Then set the eye to move when the mouse moves by running&nbsp;<code><br>ActivateEye(Eye);<br></code><br>For an example, here is the code for the two eyes on this page:<code><br>&lt;script&gt;<br>&nbsp;&nbsp;LeftEye = new MovingEye('SVGRoot', 'layer1', 20);<br>&nbsp;&nbsp;RightEye = new MovingEye('SVGRoot1', 'layer1', 20);<br>&nbsp;&nbsp;ActivateEye(LeftEye);<br>&nbsp; ActivateEye(RightEye);<br>&lt;/script&gt;<br></code>To understand how this code works, please look at&nbsp;<a href="https://github.com/avt613/Moving-Eye/blob/master/MouseMoved.js">MouseMoved.js</a>.</p>
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>

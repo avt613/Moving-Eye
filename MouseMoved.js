@@ -9,13 +9,11 @@
         LeftEye = new MovingEye('SVGRoot', 'layer1', 20);
         RightEye = new MovingEye('SVGRoot1', 'layer1', 20);
 
-    Then set mousemoved to be called for each eye when the mouse is moved
-    the mouse coordinates are the 2 required parameters
+    
+    Activate the eyes by running the ActivateEye function passing through the eye variables set previously
     e.g.
-        document.onmousemove = function(){
-            LeftEye.mousemoved(event.clientX, event.clientY);
-            RightEye.mousemoved(event.clientX, event.clientY);
-        }
+        ActivateEye(LeftEye);
+        ActivateEye(RightEye);
 */
 class MovingEye {
     constructor(id, irisid, movement) {
@@ -62,16 +60,8 @@ class MovingEye {
         this.iris.style.transform = "translate("+ x +","+ y +")";
     }
 }
-// use the MovingEye class to create the object(s) for the eye(s)
-// There are 3 parameters:
-// 1) The ID of the svg/outer eye which contains the iris
-// 2) The ID of the iris which will move
-// 3) The maximum percentage the iris can move in the outer eye
-LeftEye = new MovingEye('SVGRoot', 'layer1', 20);
-RightEye = new MovingEye('SVGRoot1', 'layer1', 20);
-// Then set mousemoved to be called for each eye when the mouse is moved
-// the mouse coordinates are the 2 required parameters
-document.onmousemove = function(e){
-    LeftEye.mousemoved(e.clientX, e.clientY);
-    RightEye.mousemoved(e.clientX, e.clientY);
+function ActivateEye(eye){
+    document.addEventListener("mousemove", function(e) {
+        eye.mousemoved(e.clientX, e.clientY);
+    });
 }
